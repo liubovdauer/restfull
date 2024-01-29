@@ -9,12 +9,8 @@ public class MapperModelDTOToModelEntity {
 	
 	public ModelEntity convertToModelEntity(ModelDTO modelDTO) {
 		
-		ModelEntity modelEntity=new ModelEntity();
-		modelEntity.setFirstName(modelDTO.getVorname());
-		modelEntity.setLastName(modelDTO.getNachname());
-		modelEntity.setCity(modelDTO.getStadt());
-		System.out.println("ModelEntity "+modelEntity);
-		return modelEntity;
+
+		return ModelEntity.builder().firstName(modelDTO.getVorname()).lastName(modelDTO.getNachname()).city(modelDTO.getStadt()).build();
 	}
 
 }

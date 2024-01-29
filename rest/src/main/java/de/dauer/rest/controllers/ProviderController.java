@@ -21,43 +21,27 @@ import de.dauer.rest.controllers.mapping.MapperAPIToDTO;
 @RestController
 @RequestMapping("/person")
 public class ProviderController {
-	
+
 	private BusinessService businessService;
-	private final ModelMapper modelMapper;
 	private MapperAPIToDTO mapper;
-	
+
 	@Autowired
-	public ProviderController(BusinessService businessService, ModelMapper modelMapper, MapperAPIToDTO mapper) {
-		this.businessService=businessService;
-		this.modelMapper = modelMapper; 
-		this.mapper=mapper;
+	public ProviderController(BusinessService businessService, MapperAPIToDTO mapper) {
+		this.businessService = businessService;
+
+		this.mapper = mapper;
 	}
-	
 
 	@PostMapping()
 	public ResponseEntity<HttpStatus> createPerson(@RequestBody ModelAPI modelAPI) {
-		
+
 		System.out.println(modelAPI);
-		//businessService.convertEnglishToGerman(modelAPI);                 
-		//ModelDTO modelDTO=modelMapper.map(modelAPI, ModelDTO.class);
-		
-//		ModelDTO modelDTO=new ModelDTO();
-		ModelDTO modelDTO=mapper.convertEnglishToGerman(modelAPI);
-		
+		ModelDTO modelDTO = mapper.convertEnglishToGerman(modelAPI);
+
 		System.out.println(modelDTO);
 		businessService.aufrufenConsumerService(modelDTO);
 		return ResponseEntity.ok(HttpStatus.OK);
-		
+
 	}
-	
-	@GetMapping()
-	public List<ModelAPI> getAllPeople(){
-		
-		
-		
-		return null;
-	}
-	
-	
 
 }

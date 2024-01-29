@@ -9,12 +9,8 @@ import de.dauer.rest.controllers.ModelAPI;
 public class MapperAPIToDTO {
 	
 	public ModelDTO convertEnglishToGerman(ModelAPI modelAPI) {
-		ModelDTO modelDTO= new ModelDTO();
-		modelDTO.setVorname(modelAPI.getFirstName());
-		modelDTO.setNachname(modelAPI.getLastName());
-		modelDTO.setStadt(modelAPI.getCity());
-		System.out.println("ModelDTO "+modelDTO);
-		return modelDTO;
+		
+		return ModelDTO.builder().vorname(modelAPI.getFirstName()).nachname(modelAPI.getLastName()).stadt(modelAPI.getCity()).build();
 	}
 
 }

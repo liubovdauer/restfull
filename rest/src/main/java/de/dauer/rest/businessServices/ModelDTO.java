@@ -1,6 +1,12 @@
 package de.dauer.rest.businessServices;
 
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+
+@Builder
+@Data
 public class ModelDTO {
 
 		private String vorname;
@@ -8,44 +14,6 @@ public class ModelDTO {
 		private String nachname;
 		
 		private String stadt;
-		
-		public ModelDTO() {}
-
-		public ModelDTO(String vorname, String nachname, String stadt) {
-			super();
-			this.vorname = vorname;
-			this.nachname = nachname;
-			this.stadt = stadt;
-		}
-
-		public String getVorname() {
-			return vorname;
-		}
-
-		public void setVorname(String vorname) {
-			this.vorname = vorname;
-		}
-
-		public String getNachname() {
-			return nachname;
-		}
-
-		public void setNachname(String nachname) {
-			this.nachname = nachname;
-		}
-
-		public String getStadt() {
-			return stadt;
-		}
-
-		public void setStadt(String stadt) {
-			this.stadt = stadt;
-		}
-
-		@Override
-		public String toString() {
-			return "GermanPerson [vorname=" + vorname + ", nachname=" + nachname + ", stadt=" + stadt + "]";
-		}
 		
 		
 }
